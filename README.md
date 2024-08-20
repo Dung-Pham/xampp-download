@@ -1,4 +1,43 @@
-**Link to download git LFS: https://git-lfs.com/**
+## 1. Fix error xampp: "MySQL shutdown unexpectedly"
+
+**Step 1** Rename the folder C:\xampp\mysql\data to C:\xampp\mysql\data_bkp (you can use any name).
+
+**Step 2** Create a new folder, C:\xampp\mysql\data.
+
+**Step 3** Copy the content that resides in mysql\backup to the new mysql\data folder.
+
+**Step 4** Copy all your database folders that are in mysql\data_bkp to mysql\data (skipping the mysql, performance_schema, and phpmyadmin folders from mysql\data_bkp).
+
+**Important note:** Please do not replace the existing files while pasting (click skip for these files)
+
+Enter image description here
+
+**Step 5** Finally copy the ibdata1 file from mysql\data_bkp and replace it inside the mysql\data folder.
+
+**Step 6** Start MySQL from XAMPP control panel.
+
+And, it's done. No databases were lost, no ports changed, no run as administrator, no force recovery, no kill mysqld process, no restoring from previous versions, and no more errors.
+
+---
+## 2. Fix error : "WILL NOT start without the configured ports free!"
+**Step 1** Xác định ứng dụng chiếm giữ port 443:
+Mở Command Prompt dưới quyền Administrator.
+Chạy lệnh sau để xác định ứng dụng nào đang chiếm giữ port 443:
+```bash
+netstat -ano | findstr :443
+```
+Lệnh này sẽ hiển thị PID (Process ID) của ứng dụng đang sử dụng port 443.
+**Step 2** Dừng ứng dụng chiếm giữ port 443:
+Sau khi xác định PID, bạn có thể dừng ứng dụng đó bằng cách chạy lệnh sau trong Command Prompt:
+```bash 
+taskkill /PID <PID> /F
+```
+Thay <PID> bằng PID của ứng dụng đã xác định.
+
+---
+## 3. Link to download git LFS: 
+
+https://git-lfs.com/
 
 
 ***Install***
@@ -101,3 +140,6 @@ To github.com:Dung-Pham/xampp-download.git
 
 Admin@DungPh?m MINGW64 /d/git LFS file/xampp-download (main)
 $
+
+
+
