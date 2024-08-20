@@ -27,6 +27,7 @@ Chạy lệnh sau để xác định ứng dụng nào đang chiếm giữ port 
 netstat -ano | findstr :443
 ```
 Lệnh này sẽ hiển thị PID (Process ID) của ứng dụng đang sử dụng port 443.
+
 **Step 2** Dừng ứng dụng chiếm giữ port 443:
 Sau khi xác định PID, bạn có thể dừng ứng dụng đó bằng cách chạy lệnh sau trong Command Prompt:
 ```bash 
